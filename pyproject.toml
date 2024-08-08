@@ -1,0 +1,51 @@
+[tool.poetry]
+name = "garmin_screenshot"
+version = "0.1.0"
+description = "Take screenshot of your Garmin app for all devices"
+authors = ["Simon Sawert <simon@sawert.se>"]
+license = "MIT"
+readme = "README.md"
+
+[tool.poetry.dependencies]
+python = "^3.10"
+pygetwindow = "^0.0.9"
+pillow = "^10.4.0"
+pyautogui = "^0.9.54"
+
+[tool.poetry.group.dev.dependencies]
+ruff = "^0.5.7"
+pytest = "^8.3.2"
+mypy = "^1.11.1"
+types-pyautogui = "^0.9.3.20240406"
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
+
+[tool.poetry.scripts]
+garmin-screenshot = "garmin_screenshot.garmin_screenshot:main"
+
+[tool.ruff]
+fix = true
+
+[tool.ruff.lint]
+select = [
+    "ARG", # flake8-unused-argument
+    "C4",  # flake8-comprehension
+    "E",   # pycodestyle error
+    "F",   # pyflakes
+    "I",   # isort
+    "N",   # pep8-naming
+    "PIE", # flake8-pie
+    "PL",  # pylint
+    "PT",  # flake8-pytest-style
+    "PTH", # flake8-use-pathlib
+    "RET", # flake8-ret
+    "RUF", # ruff specific rules
+    "SIM", # flake8-simplify
+    "UP",  # pyupgrade
+    "W",   # pycodestyle warning
+]
+
+[tool.mypy]
+ignore_missing_imports = true
